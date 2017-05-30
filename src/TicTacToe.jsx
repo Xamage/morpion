@@ -33,7 +33,7 @@ class TicTacToe extends React.Component {
         var winner = this.scores.find(s => s === -3 || s === 3);
         if (winner) {
             this.setState(s => s.winner = (winner === 3) ? "Circle" : "Cross");
-            console.log(((winner === 3) ? "Circle" : "Cross") + " wins!");
+            alert(((winner === 3) ? "Circle" : "Cross") + " wins!");
         }
     }
 
@@ -46,7 +46,7 @@ class TicTacToe extends React.Component {
             }
         
         return (
-            <div className="tictactoe-board-game">
+            <div className="board-game tictactoe-board-game">
                 {squares}
             </div>
         );

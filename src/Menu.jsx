@@ -1,9 +1,11 @@
+import { Link } from 'react-router-dom';
+
 const Menu = () => (
     <ul className="menu">
-        <li className="menu-entry"><a href="/morpion">Morpion</a></li>
-        <li className="menu-entry"><a href="/puissance4">Puissance 4</a></li>
-        <li className="menu-entry"><a href="/dames"></a>Dames</li>
-        <li className="menu-entry"><a href="/echecs"></a>Echecs</li>        
+        <li className="menu-entry"><Link to="/tictactoe">Morpion</Link></li>
+        <li className="menu-entry"><Link to="/power4">Puissance 4</Link></li>
+        <li className="menu-entry"><Link to="/checkers">Dames</Link></li>
+        <li className="menu-entry"><Link to="/chess">Echecs</Link></li>
     </ul>
 );
 
