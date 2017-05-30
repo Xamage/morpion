@@ -1,9 +1,6 @@
-var React = require('react');
-var Square = require('./Square');
+import TicTacToeSquare from './TicTacToeSquare';
 
-require('./style.css');
-
-class Morpion extends React.Component {
+class TicTacToe extends React.Component {
     constructor(props) {
         super(props);
         this.state = { player: 1 };
@@ -36,26 +33,24 @@ class Morpion extends React.Component {
         var winner = this.scores.find(s => s === -3 || s === 3);
         if (winner) {
             this.setState(s => s.winner = (winner === 3) ? "Circle" : "Cross");
+            console.log(((winner === 3) ? "Circle" : "Cross") + " wins!");
         }
     }
 
-    render() {                
+    render() {
         let squares = [];
         for (let y = 0; y < 3; y++)
             for (let x = 0; x < 3; x++) {
                 let key = (y+3) * (x+1);
-                squares.push(<Square key={key} x={x} y={y} getPlayer={this.getPlayer} onPlayed={this.onPlayed}></Square>);
+                squares.push(<TicTacToeSquare key={key} x={x} y={y} getPlayer={this.getPlayer} onPlayed={this.onPlayed}></TicTacToeSquare>);
             }
         
         return (
-            <div className="game">
-                <div className="board">
-                    {squares}
-                </div>
-                { this.state.winner && <div className="winner">{this.state.winner} win !</div> }
+            <div className="tictactoe-board-game">
+                {squares}
             </div>
         );
     }
 }
 
-module.exports = Morpion;
+export default TicTacToe;

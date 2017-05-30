@@ -1,5 +1,5 @@
 module.exports = {
-    entry: './index.jsx',
+    entry: './src/index.jsx',
     output: {
         filename: 'bundle.js', //this is the default name, so you can skip it
         //at this directory our bundle file will be available
@@ -10,8 +10,12 @@ module.exports = {
         loaders: [
             {
                 //tell webpack to use jsx-loader for all *.jsx files
-                test: /\.jsx$/,
-                loader: 'jsx-loader?insertPragma=React.DOM&harmony'
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader'/*, 'jsx-loader?insertPragma=React.DOM&harmony'*/,
+                query: {
+                    presets: ['es2015', 'react']
+                }
             },
             {
                 test: /\.css$/,
